@@ -1,1 +1,1 @@
-export { default } from './firestore';
+export * from './firestore';
