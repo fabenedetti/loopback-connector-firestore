@@ -58,7 +58,7 @@ class Firestore extends Connector {
 
 		try {
 			let result: any[];
-			if (where && where.id) {
+			if (where && where.id && typeof where.id !== 'object') {
 				const { id } = where;
 				result = await this.findById(model, id);
 			} else if (this.hasFilter(filter)) {
