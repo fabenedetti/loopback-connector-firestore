@@ -335,9 +335,11 @@ class Firestore extends Connector {
 	};
 
 	public create = (model: string, data: any, callback: ICallback) => {
+		const newDoc = this.db.collection(model).doc();
 		this.db
 			.collection(model)
-			.add(data)
+			.doc(newDoc.id)
+			.set({ ...data, id: newDoc.id })
 			.then((ref: DocumentReference) => {
 				callback(null, ref.id);
 			})
