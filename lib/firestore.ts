@@ -341,7 +341,7 @@ class Firestore extends Connector {
 			.doc(newDoc.id)
 			.set({ ...data, id: newDoc.id })
 			.then((ref: DocumentReference) => {
-				callback(null, ref.id);
+				callback(null, newDoc.id);
 			})
 			.catch((err: Error) => {
 				callback(err);
